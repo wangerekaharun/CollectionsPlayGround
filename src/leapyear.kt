@@ -5,11 +5,18 @@ fun main(){
  fun enterMessageLabel(){
      val enterYearLabel = "Enter Year"
      enterYearLabel.print()
-     yearEntered = readLine()?.toIntOrNull()!!
-     val leapDesc = "$yearEntered is a leap year"
-     val notLeapYearDesc = "$yearEntered is not a leap year"
-     if ( leapYearCheck(yearEntered)) leapDesc.print() else notLeapYearDesc.print()
-     enterMessageLabel()
+     val yearEnteredString = readLine()
+     if (yearEnteredString?.length!! > 4 || yearEnteredString.length < 4){
+        println("Value entered not a valid year")
+         return
+     }else{
+         yearEntered = yearEnteredString.toIntOrNull()!!
+         val leapDesc = "$yearEntered is a leap year"
+         val notLeapYearDesc = "$yearEntered is not a leap year"
+         if ( leapYearCheck(yearEntered)) leapDesc.print() else notLeapYearDesc.print()
+         enterMessageLabel()
+     }
+
  }
 
 fun leapYearCheck(yearEntered: Int) : Boolean {
