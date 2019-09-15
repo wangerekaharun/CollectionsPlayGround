@@ -14,9 +14,8 @@ fun main(){
 
 fun leapYearCheck(yearEntered: Int) : Boolean {
        return when {
-            yearEntered % 4 == 0 ->  true
-            yearEntered % 100 == 0 ->  false
-            yearEntered % 400 == 0 ->  true
+           yearEntered % 4 == 0 && yearEntered % 100 != 0  ->  true
+           yearEntered % 400 == 0 && yearEntered % 100 == 0 ->  true
            else -> false
        }
 }
